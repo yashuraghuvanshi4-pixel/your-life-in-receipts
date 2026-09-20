@@ -1,0 +1,199 @@
+/* Your Life, In Receipts - Thermal & Editorial Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --bg-deep: #0a0d14;
+  --bg-surface: #121824;
+  --bg-card: #182234;
+  --paper-cream: #fbf9f4;
+  --paper-edge: #eee8d8;
+  --paper-ink: #1f2937;
+  --paper-ink-muted: #6b7280;
+  
+  --dim-purchase: #10b981;
+  --dim-music: #06b6d4;
+  --dim-place: #f59e0b;
+  --dim-photo: #f43f5e;
+  --dim-message: #38bdf8;
+  --dim-search: #a855f7;
+  --dim-note: #eab308;
+  --dim-event: #ef4444;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-deep);
+  color: #f1f5f9;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.font-mono-receipt {
+  font-family: 'Space Mono', monospace;
+}
+
+.font-serif-story {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d121d;
+}
+::-webkit-scrollbar-thumb {
+  background: #25334d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b4f74;
+}
+
+/* Thermal Paper Styling */
+.thermal-receipt {
+  background-color: var(--paper-cream);
+  color: var(--paper-ink);
+  font-family: 'Space Mono', monospace;
+  position: relative;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.thermal-receipt:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5), 0 10px 15px -5px rgba(0, 0, 0, 0.4);
+}
+
+/* Serrated jagged paper tear bottom */
+.serrated-bottom {
+  position: relative;
+}
+.serrated-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: radial-gradient(circle, transparent, transparent 50%, var(--paper-cream) 50%, var(--paper-cream) 100%);
+  background-size: 14px 14px;
+  background-position: bottom;
+}
+
+/* Perforation dashed line */
+.perforated-line {
+  border-bottom: 2px dashed rgba(0, 0, 0, 0.22);
+}
+
+/* Barcode simulation */
+.barcode-strip {
+  height: 32px;
+  background: repeating-linear-gradient(
+    90deg,
+    #111 0px,
+    #111 2px,
+    transparent 2px,
+    transparent 4px,
+    #111 4px,
+    #111 7px,
+    transparent 7px,
+    transparent 9px,
+    #111 9px,
+    #111 10px,
+    transparent 10px,
+    transparent 13px,
+    #111 13px,
+    #111 16px,
+    transparent 16px,
+    transparent 17px
+  );
+  opacity: 0.85;
+}
+
+/* Vintage Stamp Effect */
+.receipt-stamp {
+  border: 2px solid;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  transform: rotate(-4deg);
+  display: inline-block;
+  opacity: 0.88;
+}
+
+.stamp-green {
+  border-color: #059669;
+  color: #059669;
+}
+.stamp-rose {
+  border-color: #e11d48;
+  color: #e11d48;
+}
+.stamp-purple {
+  border-color: #7c3aed;
+  color: #7c3aed;
+}
+.stamp-amber {
+  border-color: #d97706;
+  color: #d97706;
+}
+
+/* 3D Flip Card Mechanics */
+.flip-card {
+  perspective: 1000px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Audio Waveform Animation */
+.audio-bar {
+  animation: bounceBar 1.2s infinite ease-in-out;
+}
+@keyframes bounceBar {
+  0%, 100% { height: 4px; }
+  50% { height: 18px; }
+}
+
+/* Glowing Pulsing Ring */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.08); }
+}
+.pulse-glow {
+  animation: pulseGlow 2.5s infinite;
+}
+
+/* Constellation Canvas Container */
+#constellationCanvas {
+  background: radial-gradient(circle at center, #131b2e 0%, #0a0d14 100%);
+  cursor: grab;
+}
+#constellationCanvas:active {
+  cursor: grabbing;
+}
