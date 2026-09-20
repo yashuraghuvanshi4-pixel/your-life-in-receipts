@@ -17,7 +17,8 @@
     "totalNotes": 10,
     "totalEvents": 9,
     "totalStories": 8,
-    "totalPatterns": 4
+    "totalPatterns": 4,
+    "totalMovies": 12
   },
   "eras": [
     {
@@ -51213,7 +51214,8 @@
         "txn_0088",
         "pht_011",
         "msg_019",
-        "not_009"
+        "not_009",
+        "mov_012"
       ],
       "connectedDimensions": [
         "Purchases",
@@ -51222,7 +51224,8 @@
         "Messages",
         "Photos",
         "Music",
-        "Personal Notes"
+        "Personal Notes",
+        "Movies & Entertainment"
       ],
       "connectionsExplained": "The journey begins with an anxious Google search ('cataract surgery types phacoemulsification vs laser cost'), follows through routine hospital checkup fees (\u20b9400, \u20b93,050), repeated Ola cabs (\u20b9130, \u20b9188, \u20b9155), surgery medicines (\u20b91,358, \u20b91,048), and ends with Aai's message 'Beta these new spectacles are wonderful'."
     },
@@ -51283,7 +51286,8 @@
         "evt_006",
         "pht_008",
         "msg_014",
-        "not_007"
+        "not_007",
+        "mov_010"
       ],
       "connectedDimensions": [
         "Purchases",
@@ -51292,7 +51296,8 @@
         "Messages",
         "Events",
         "Photos",
-        "Personal Notes"
+        "Personal Notes",
+        "Movies & Entertainment"
       ],
       "connectionsExplained": "Synthesizes health queries, footwear purchases, training playlists ('Eye of the Tiger', 'Zinda'), race bib collection chat with running partner Kunal, and the triumphant finish line photo and message to mom."
     },
@@ -51348,7 +51353,8 @@
         "txn_2380",
         "srch_001",
         "txn_2290",
-        "not_002"
+        "not_002",
+        "mov_001"
       ],
       "connectedDimensions": [
         "Places",
@@ -51357,7 +51363,8 @@
         "Photos",
         "Music",
         "Searches",
-        "Personal Notes"
+        "Personal Notes",
+        "Movies & Entertainment"
       ],
       "connectionsExplained": "Connects roommate split settlements, \u20b910 commute rides to office, shared meals, and the gritty, unpolished joy of early independence."
     },
@@ -51384,7 +51391,8 @@
         "msg_009",
         "evt_009",
         "pht_012",
-        "not_010"
+        "not_010",
+        "mov_004"
       ],
       "connectedDimensions": [
         "Purchases",
@@ -51393,7 +51401,8 @@
         "Photos",
         "Personal Notes",
         "Messages",
-        "Events"
+        "Events",
+        "Movies & Entertainment"
       ],
       "connectionsExplained": "Demonstrates the direct pipeline from continuous educational investment to hard financial outcomes: 47k starting salary -> 56k in early 2017 -> 64k in early 2018 -> 70,255 promotion in August 2018."
     },
@@ -51582,5 +51591,247 @@
       "topExpense": "Two Wheeler Bikedelux (Rs. 94,000 total) & Cataract Care",
       "quote": "Two wheels to ride across the coastline, and a mother who can see clearly again."
     }
-  }
+  },
+  "movies": [
+    {
+      "id": "mov_001",
+      "type": "movie",
+      "dimension": "Movies & Entertainment",
+      "title": "Amazon Prime: Interstellar",
+      "date": "2015-06-23",
+      "time": "20:00:00",
+      "timestamp": "2015-06-23T20:00:00Z",
+      "category": "Movies & Entertainment",
+      "platform": "Prime Video",
+      "genre": "Sci-Fi / Drama",
+      "note": "Watched on laptop in room B45 after work.",
+      "eraId": "era_1"
+    },
+    {
+      "id": "mov_002",
+      "type": "movie",
+      "dimension": "Movies & Entertainment",
+      "title": "Netflix: Narcos Season 1",
+      "date": "2015-11-08",
+      "time": "21:30:00",
+      "timestamp": "2015-11-08T21:30:00Z",
+      "category": "Movies & Entertainment",
+      "platform": "Netflix",
+      "genre": "Crime / Drama",
+      "note": "Weekend binge in Baroda bachelor flat.",
+      "eraId": "era_1"
+    },
+    {
+      "id": "mov_003",
+      "type": "movie",
+      "dimension": "Movies & Entertainment",
+      "title": "OTT Platform: Sarabhai vs Sarabhai",
+      "date": "2016-04-03",
+      "time": "19:00:00",
+      "timestamp": "2016-04-03T19:00:00Z",
+      "category": "Movies & Entertainment",
+      "platform": "Hotstar",
+      "genre": "Comedy",
+      "note": "Comfort watching with flatmates over dinner.",
+      "eraId": "era_1"
+    },
+    {
+      "id": "mov_004",
+      "type": "movie",
+      "dimension": "Movies & Entertainment",
+      "title": "Netflix: Stranger Things",
+      "date": "2016-10-07",
+      "time": "20:45:00",
+      "timestamp": "2016-10-07T20:45:00Z",
+      "category": "Movies & Entertainment",
+      "platform": "Netflix",
+      "genre": "Sci-Fi",
+      "note": "Late night viewing with earphones.",
+      "eraId": "era_2"
+    },
+    {
+      "id": "mov_005",
+      "type": "movie",
+      "dimension": "Movies & Entertainment",
+      "title": "Imax 3D: Rogue One - Star Wars",
+      "date": "2017-01-03",
+      "time": "18:00:00",
+      "timestamp": "2017-01-03T18:00:00Z",
+      "category": "Movies & Entertainment",
+      "platform": "Theatre",
+      "genre": "Sci-Fi / Action",
+      "note": "Imax 3D experience ticket (Rs. 400).",
+      "eraId": "era_2"
+    },
+    {
+      "id": "mov_006",
+      "type": "movie",
+      "dimension": "Movies & Entertainment",
+      "title": "Inox Cinema: The Batman",
+      "date": "2017-03-12",
+      "time": "17:00:00",
+      "timestamp": "2017-03-12T17:00:00Z",
+      "category": "Movies & Entertainment",
+      "platform": "Theatre",
+      "genre": "Action",
+      "note": "2 Batman tickets at Place 4 theatre (Rs. 440).",
+      "eraId": "era_2"
+    },
+    {
+      "id": "mov_007",
+      "type": "movie",
+      "dimension": "Movies & Entertainment",
+      "title": "Cinepolis 4DX 3D: Wonder Woman",
+      "date": "2017-06-08",
+      "time": "18:30:00",
+      "timestamp": "2017-06-08T18:30:00Z",
+      "category": "Movies & Entertainment",
+      "platform": "Theatre",
+      "genre": "Action / Fantasy",
+      "note": "2 tickets Cinepolis 4DX 3D motion seats (Rs. 760).",
+      "eraId": "era_3"
+    },
+    {
+      "id": "mov_008",
+      "type": "movie",
+      "dimension": "Movies & Entertainment",
+      "title": "PVR Cinema: Newton",
+      "date": "2017-09-24",
+      "time": "15:30:00",
+      "timestamp": "2017-09-24T15:30:00Z",
+      "category": "Movies & Entertainment",
+      "platform": "Theatre",
+      "genre": "Drama",
+      "note": "Sunday matinee show 2 tickets (Rs. 560).",
+      "eraId": "era_3"
+    },
+    {
+      "id": "mov_009",
+      "type": "movie",
+      "dimension": "Movies & Entertainment",
+      "title": "Hotstar: Premier League Match",
+      "date": "2017-10-01",
+      "time": "21:00:00",
+      "timestamp": "2017-10-01T21:00:00Z",
+      "category": "Movies & Entertainment",
+      "platform": "Hotstar Mobile",
+      "genre": "Sports",
+      "note": "Watched weekend football match.",
+      "eraId": "era_3"
+    },
+    {
+      "id": "mov_010",
+      "type": "movie",
+      "dimension": "Movies & Entertainment",
+      "title": "PVR Cinema Place 6: Secret Superstar",
+      "date": "2017-11-19",
+      "time": "14:00:00",
+      "timestamp": "2017-11-19T14:00:00Z",
+      "category": "Movies & Entertainment",
+      "platform": "Theatre",
+      "genre": "Drama",
+      "note": "Post-marathon celebration movie with family (Rs. 436).",
+      "eraId": "era_3"
+    },
+    {
+      "id": "mov_011",
+      "type": "movie",
+      "dimension": "Movies & Entertainment",
+      "title": "PVR Cinema: Pad Man",
+      "date": "2018-02-06",
+      "time": "19:00:00",
+      "timestamp": "2018-02-06T19:00:00Z",
+      "category": "Movies & Entertainment",
+      "platform": "Theatre",
+      "genre": "Biographical Drama",
+      "note": "2 tickets PVR Place 6 (Rs. 312).",
+      "eraId": "era_4"
+    },
+    {
+      "id": "mov_012",
+      "type": "movie",
+      "dimension": "Movies & Entertainment",
+      "title": "INOX: Mission Impossible Fallout",
+      "date": "2018-07-28",
+      "time": "21:30:00",
+      "timestamp": "2018-07-28T21:30:00Z",
+      "category": "Movies & Entertainment",
+      "platform": "Theatre",
+      "genre": "Action",
+      "note": "2 INOX tickets after hospital visit (Rs. 481).",
+      "eraId": "era_4"
+    }
+  ],
+  "journeyLocations": [
+    {
+      "id": "loc_mysore",
+      "city": "Mysore",
+      "state": "Karnataka",
+      "coordinates": [
+        12.2958,
+        76.6394
+      ],
+      "era": "The Mysore Apprenticeship",
+      "period": "Jan 2015 \u2013 May 2015",
+      "description": "Room B45 at Infosys Global Education Center. Sitar rehearsals, \u20b98 canteen tea, early Python scripts.",
+      "icon": "\ud83c\udfdb\ufe0f",
+      "receiptCount": 142
+    },
+    {
+      "id": "loc_pune",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "coordinates": [
+        18.5204,
+        73.8567
+      ],
+      "era": "The Hinjewadi Crucible & Independence",
+      "period": "Jun 2015 \u2013 Sep 2018",
+      "description": "Kalyani Nagar & Hinjewadi Phase 1. 2 AM coding, tapri chai rituals, buying the TV for family, first marathon.",
+      "icon": "\ud83c\udfd9\ufe0f",
+      "receiptCount": 1890
+    },
+    {
+      "id": "loc_sevagram",
+      "city": "Sevagram / Wardha",
+      "state": "Maharashtra",
+      "coordinates": [
+        20.7453,
+        78.6022
+      ],
+      "era": "The Pilgrimage of Care",
+      "period": "Nov 2016 & Jul 2018",
+      "description": "Kasturba Hospital Sevagram. Aai's bilateral cataract surgery, recovery, and quiet emotional resilience.",
+      "icon": "\ud83c\udfe5",
+      "receiptCount": 48
+    },
+    {
+      "id": "loc_mumbai",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "coordinates": [
+        19.076,
+        72.8777
+      ],
+      "era": "Local Train Pilgrimage & Half Marathon",
+      "period": "2016 \u2013 2018",
+      "description": "Standard Chartered Mumbai Marathon finish line at CST, local train passes, Marine Drive sunrise.",
+      "icon": "\ud83c\udfc3",
+      "receiptCount": 94
+    },
+    {
+      "id": "loc_ladakh",
+      "city": "Leh-Ladakh",
+      "state": "Jammu & Kashmir",
+      "coordinates": [
+        34.1526,
+        77.5771
+      ],
+      "era": "Two Wheels to Freedom",
+      "period": "Jun 2017",
+      "description": "Solo Himalayan expedition on the Thunderbird 350. Khardung La pass, Chang La, deep personal sabbatical.",
+      "icon": "\ud83c\udfd4\ufe0f",
+      "receiptCount": 35
+    }
+  ]
 }

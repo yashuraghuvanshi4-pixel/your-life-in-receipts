@@ -13,13 +13,13 @@
   
   <script>
     tailwind.config = {
-      darkMode: 'class',
+      darkMode: "class",
       theme: {
         extend: {
           colors: {
-            paper: '#fbf9f4',
-            charcoal: '#0a0d14',
-            surface: '#121824',
+            paper: "#fbf9f4",
+            charcoal: "#0a0d14",
+            surface: "#121824",
           }
         }
       }
@@ -28,20 +28,28 @@
 </head>
 <body class="bg-[#0a0d14] text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
 
+  <!-- A11y Skip Link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg focus:shadow-xl focus:outline-none font-mono-receipt text-xs">
+    Skip to main content
+  </a>
+
   <!-- TOP HERO & BRAND HEADER -->
-  <header class="border-b border-slate-800/80 bg-[#0d121d]/90 backdrop-blur-md sticky top-0 z-40">
+  <header role="banner" class="border-b border-slate-800/80 bg-[#0d121d]/90 backdrop-blur-md sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
       
       <!-- Brand & Philosophy -->
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 via-cyan-500 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20 text-lg">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 via-cyan-500 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20 text-lg" aria-hidden="true">
           🧾
         </div>
         <div>
           <div class="flex items-center gap-2">
             <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white font-serif-story">Your Life, In Receipts</h1>
-            <span class="text-[10px] uppercase font-mono-receipt px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">
+            <span class="text-[10px] uppercase font-mono-receipt px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold" data-testid="era-badge">
               Archive 2015–2018
+            </span>
+            <span class="text-[10px] uppercase font-mono-receipt px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-semibold hidden sm:inline">
+              9 Connected Dimensions
             </span>
           </div>
           <p class="text-xs text-slate-400">Transforming 1,380 days of disconnected moments into human story</p>
@@ -50,10 +58,10 @@
 
       <!-- Action Utilities -->
       <div class="flex items-center gap-2.5">
-        <button id="toggleMuteBtn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono-receipt text-slate-300 border border-slate-700 transition-colors flex items-center gap-1.5">
+        <button id="toggleMuteBtn" aria-label="Toggle sound feedback" data-testid="audio-toggle-btn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono-receipt text-slate-300 border border-slate-700 transition-colors flex items-center gap-1.5">
           🔊 Audio Active
         </button>
-        <button onclick="window.app.switchTab('wrapped')" class="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-xs font-semibold text-white shadow-md transition-all">
+        <button onclick="window.app.switchTab('wrapped')" data-testid="wrapped-btn" class="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-xs font-semibold text-white shadow-md transition-all">
           ✨ Life Wrapped
         </button>
       </div>
@@ -70,7 +78,7 @@
   </header>
 
   <!-- MAIN CONTAINER -->
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+  <main id="main-content" role="main" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
 
     <!-- LIFE ERA NAVIGATION -->
     <div class="space-y-2">
@@ -78,50 +86,53 @@
         <span class="uppercase tracking-wider">Life Chapter Progression:</span>
         <span class="text-indigo-400">Filter stories & receipts by era</span>
       </div>
-      <div id="eraButtonsContainer" class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+      <div id="eraButtonsContainer" class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none" role="toolbar" aria-label="Era filter selection">
         <!-- Dynamic Era Buttons from app.js -->
       </div>
     </div>
 
     <!-- PRIMARY EXPERIENCE TABS -->
     <div class="border-b border-slate-800 flex items-center justify-between overflow-x-auto scrollbar-none">
-      <nav class="flex space-x-1 sm:space-x-2 py-2" aria-label="Tabs">
-        <button class="tab-nav-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2" data-tab="stories">
+      <nav class="flex space-x-1 sm:space-x-2 py-2" role="tablist" aria-label="Experience Modes">
+        <button id="tabBtn_stories" role="tab" aria-selected="true" aria-controls="tabView_stories" data-testid="tab-stories" data-tab="stories" class="tab-nav-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2">
           <span>📖</span> Story Chapters
         </button>
-        <button class="tab-nav-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2" data-tab="constellation">
+        <button id="tabBtn_constellation" role="tab" aria-selected="false" aria-controls="tabView_constellation" data-testid="tab-constellation" data-tab="constellation" class="tab-nav-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2">
           <span>🌌</span> Synapse Constellation
         </button>
-        <button class="tab-nav-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2" data-tab="scrapbook">
+        <button id="tabBtn_scrapbook" role="tab" aria-selected="false" aria-controls="tabView_scrapbook" data-testid="tab-scrapbook" data-tab="scrapbook" class="tab-nav-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2">
           <span>🧾</span> Thermal Scrapbook
         </button>
-        <button class="tab-nav-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2" data-tab="detective">
+        <button id="tabBtn_detective" role="tab" aria-selected="false" aria-controls="tabView_detective" data-testid="tab-detective" data-tab="detective" class="tab-nav-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2">
           <span>🔍</span> Narrative Detective
         </button>
-        <button class="tab-nav-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2" data-tab="wrapped">
+        <button id="tabBtn_journey" role="tab" aria-selected="false" aria-controls="tabView_journey" data-testid="tab-journey" data-tab="journey" class="tab-nav-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2">
+          <span>🗺️</span> Life Journey Map
+        </button>
+        <button id="tabBtn_wrapped" role="tab" aria-selected="false" aria-controls="tabView_wrapped" data-testid="tab-wrapped" data-tab="wrapped" class="tab-nav-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2">
           <span>🎁</span> Annual Wrapped
         </button>
       </nav>
     </div>
 
     <!-- VIEW 1: STORY CHAPTERS -->
-    <section id="tabView_stories" class="tab-view-content space-y-6">
+    <section id="tabView_stories" role="tabpanel" aria-labelledby="tabBtn_stories" class="tab-view-content space-y-6">
       <div id="storiesContainer">
         <!-- Rendered by app.js -->
       </div>
     </section>
 
     <!-- VIEW 2: CONSTELLATION GRAPH -->
-    <section id="tabView_constellation" class="tab-view-content hidden space-y-4">
+    <section id="tabView_constellation" role="tabpanel" aria-labelledby="tabBtn_constellation" class="tab-view-content hidden space-y-4">
       <div class="bg-slate-900 border border-slate-800 rounded-3xl p-4 sm:p-6 shadow-2xl relative overflow-hidden">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-3 border-b border-slate-800">
           <div>
             <h2 class="text-xl sm:text-2xl font-bold font-serif-story text-white">The Synapse Constellation</h2>
-            <p class="text-xs text-slate-400">Each node is a digital receipt. Lines connect moments occurring within 48 hours.</p>
+            <p class="text-xs text-slate-400">Each node is a digital receipt. Lines connect moments occurring within 48 hours across all 9 dimensions.</p>
           </div>
           <div class="flex items-center gap-3">
             <span class="text-xs text-slate-400 font-mono-receipt hidden md:inline">Drag to pan • Scroll to zoom • Click node to inspect</span>
-            <button onclick="window.app.constellation.resetView()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-mono-receipt text-slate-200 rounded-lg border border-slate-700">
+            <button onclick="window.app.constellation.resetView()" data-testid="reset-constellation-btn" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-mono-receipt text-slate-200 rounded-lg border border-slate-700">
               Reset View ⟲
             </button>
           </div>
@@ -129,20 +140,21 @@
 
         <!-- Canvas Viewport -->
         <div class="relative w-full h-[540px] rounded-2xl overflow-hidden border border-slate-800/80">
-          <canvas id="constellationCanvas" class="w-full h-full block"></canvas>
+          <canvas id="constellationCanvas" class="w-full h-full block" aria-label="Interactive Constellation Graph of Life Receipts"></canvas>
           
-          <!-- Legend Overlay -->
+          <!-- Legend Overlay (All 9 Dimensions) -->
           <div class="absolute bottom-4 left-4 bg-slate-950/85 backdrop-blur-md p-3 rounded-xl border border-slate-800 text-[11px] font-mono-receipt space-y-1.5 shadow-lg pointer-events-none">
-            <div class="font-bold text-slate-300 text-[10px] uppercase tracking-wider mb-1">Dimensions Legend:</div>
+            <div class="font-bold text-slate-300 text-[10px] uppercase tracking-wider mb-1">9 Dimensions Legend:</div>
             <div class="grid grid-cols-2 gap-x-3 gap-y-1">
               <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Purchases</div>
-              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span> Music</div>
-              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Places</div>
-              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span> Photos</div>
-              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span> Messages</div>
-              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span> Searches</div>
-              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span> Notes</div>
-              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500"></span> Events</div>
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span> Music (Spotify)</div>
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-pink-500"></span> Movies & Shows</div>
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Places & Check-ins</div>
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span> Polaroid Photos</div>
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span> Messages & Chats</div>
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span> Google Searches</div>
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span> Personal Notes</div>
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500"></span> Milestones</div>
             </div>
           </div>
         </div>
@@ -150,7 +162,7 @@
     </section>
 
     <!-- VIEW 3: DIGITAL SCRAPBOOK & RECEIPT EXPLORER -->
-    <section id="tabView_scrapbook" class="tab-view-content hidden space-y-6">
+    <section id="tabView_scrapbook" role="tabpanel" aria-labelledby="tabBtn_scrapbook" class="tab-view-content hidden space-y-6">
       
       <!-- Explorer Search & Filters Toolbar -->
       <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-lg space-y-4">
@@ -160,37 +172,40 @@
             <input 
               type="text" 
               id="receiptSearchInput"
-              placeholder="Search receipts by keyword: 'Aai', 'Marathon', 'Chai', 'B45', 'Infosys', 'Sevagram'..."
+              data-testid="search-input"
+              placeholder="Search receipts by keyword: 'Aai', 'Marathon', 'Chai', 'B45', 'Interstellar', 'Sevagram'..."
               class="w-full bg-slate-950/80 border border-slate-700/80 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors font-mono-receipt"
+              aria-label="Search receipts"
             >
-            <span class="absolute right-3.5 top-2.5 text-slate-500">🔍</span>
+            <span class="absolute right-3.5 top-2.5 text-slate-500" aria-hidden="true">🔍</span>
           </div>
 
           <!-- Counter display -->
           <div class="flex items-center justify-between sm:justify-end gap-3">
-            <span id="matchCountDisplay" class="text-xs font-mono-receipt text-slate-400 whitespace-nowrap">
+            <span id="matchCountDisplay" data-testid="match-count" class="text-xs font-mono-receipt text-slate-400 whitespace-nowrap">
               Loading receipts...
             </span>
           </div>
         </div>
 
-        <!-- Dimension Filter Pills -->
-        <div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none text-xs">
+        <!-- Dimension Filter Pills (ALL 9 DIMENSIONS + ALL) -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none text-xs" role="toolbar" aria-label="Dimension filters">
           <span class="text-slate-400 font-mono-receipt uppercase mr-1">Dimension:</span>
-          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-white text-slate-900 font-semibold transition-all whitespace-nowrap" data-dim="all">All (9 Dimensions)</button>
-          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Purchases">💳 Purchases</button>
-          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Music">🎵 Spotify Streams</button>
-          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Places">📍 Check-ins & Places</button>
-          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Photos">📷 Polaroid Memories</button>
-          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Messages">💬 Chats & SMS</button>
-          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Searches">🔎 Google Queries</button>
-          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Personal Notes">📝 Journal Reflections</button>
-          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Events">🚩 Milestones</button>
+          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-white text-slate-900 font-semibold transition-all whitespace-nowrap" data-dim="all" data-testid="filter-all">All (9 Dimensions)</button>
+          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Purchases" data-testid="filter-purchases">💳 Purchases</button>
+          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Music" data-testid="filter-music">🎵 Spotify Streams</button>
+          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Movies & Entertainment" data-testid="filter-movies">🎬 Movies & Entertainment</button>
+          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Places" data-testid="filter-places">📍 Check-ins & Places</button>
+          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Photos" data-testid="filter-photos">📷 Polaroid Memories</button>
+          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Messages" data-testid="filter-messages">💬 Chats & SMS</button>
+          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Searches" data-testid="filter-searches">🔎 Google Queries</button>
+          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Personal Notes" data-testid="filter-notes">📝 Journal Reflections</button>
+          <button class="dimension-filter-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all whitespace-nowrap" data-dim="Events" data-testid="filter-events">🚩 Milestones</button>
         </div>
       </div>
 
       <!-- Receipts Grid -->
-      <div id="receiptsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div id="receiptsGrid" data-testid="receipts-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <!-- Rendered by app.js -->
       </div>
 
@@ -200,15 +215,22 @@
       </div>
     </section>
 
-    <!-- VIEW 4: NARRATIVE DETECTIVE (COMBINATOR) -->
-    <section id="tabView_detective" class="tab-view-content hidden space-y-6">
+    <!-- VIEW 4: NARRATIVE DETECTIVE (COMBINATOR & AI ARCHAEOLOGIST) -->
+    <section id="tabView_detective" role="tabpanel" aria-labelledby="tabBtn_detective" class="tab-view-content hidden space-y-6">
       <div id="detectiveContainer">
         <!-- Rendered by app.js -->
       </div>
     </section>
 
-    <!-- VIEW 5: LIFE WRAPPED -->
-    <section id="tabView_wrapped" class="tab-view-content hidden space-y-6">
+    <!-- VIEW 5: LIFE JOURNEY MAP -->
+    <section id="tabView_journey" role="tabpanel" aria-labelledby="tabBtn_journey" class="tab-view-content hidden space-y-6">
+      <div id="journeyContainer">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- VIEW 6: LIFE WRAPPED -->
+    <section id="tabView_wrapped" role="tabpanel" aria-labelledby="tabBtn_wrapped" class="tab-view-content hidden space-y-6">
       <div id="wrappedContainer">
         <!-- Rendered by app.js -->
       </div>
@@ -219,7 +241,7 @@
   <!-- PERSISTENT AUDIO STREAMING DOCK BAR (SPOTIFY STYLE) -->
   <div id="globalAudioBar" class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 max-w-lg w-[92%] bg-slate-900/95 backdrop-blur-xl border border-cyan-500/40 rounded-2xl p-3 shadow-2xl flex items-center justify-between gap-4">
     <div class="flex items-center gap-3 overflow-hidden">
-      <div class="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-base shrink-0">
+      <div class="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-base shrink-0" aria-hidden="true">
         🎵
       </div>
       <div id="audioTrackInfo" class="overflow-hidden">
@@ -230,22 +252,22 @@
 
     <!-- Equalizer Animation & Close -->
     <div class="flex items-center gap-3 shrink-0">
-      <div class="flex items-end gap-1 h-5">
+      <div class="flex items-end gap-1 h-5" aria-hidden="true">
         <span class="w-1 bg-cyan-400 rounded-full audio-bar" style="animation-delay: 0.1s"></span>
         <span class="w-1 bg-cyan-400 rounded-full audio-bar" style="animation-delay: 0.3s"></span>
         <span class="w-1 bg-cyan-400 rounded-full audio-bar" style="animation-delay: 0.5s"></span>
         <span class="w-1 bg-cyan-400 rounded-full audio-bar" style="animation-delay: 0.2s"></span>
       </div>
-      <button onclick="document.getElementById('globalAudioBar').classList.add('hidden')" class="text-xs text-slate-400 hover:text-white px-2 py-1">
+      <button onclick="document.getElementById('globalAudioBar').classList.add('hidden')" aria-label="Close audio player" class="text-xs text-slate-400 hover:text-white px-2 py-1">
         ✕
       </button>
     </div>
   </div>
 
   <!-- RECEIPT DOSSIER MODAL -->
-  <div id="receiptModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+  <div id="receiptModal" role="dialog" aria-modal="true" aria-labelledby="modalReceiptTitle" data-testid="receipt-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
     <div class="bg-slate-950 border border-slate-800 rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative my-auto">
-      <button id="closeModalBtn" class="absolute top-5 right-5 text-slate-400 hover:text-white text-lg w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center border border-slate-800 transition-colors">
+      <button id="closeModalBtn" data-testid="close-modal-btn" aria-label="Close modal dossier" class="absolute top-5 right-5 text-slate-400 hover:text-white text-lg w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center border border-slate-800 transition-colors">
         ✕
       </button>
 

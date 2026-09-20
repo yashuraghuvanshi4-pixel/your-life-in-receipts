@@ -33,8 +33,9 @@ class ConstellationViewer {
     const storyItemIds = new Set();
     this.data.stories.forEach(s => s.receiptSequence.forEach(id => storyItemIds.add(id)));
 
-    // Collect candidates
+    // Collect candidates across all dimensions
     this.data.music.forEach(m => allItems.push(m));
+    if (this.data.movies) this.data.movies.forEach(mv => allItems.push(mv));
     this.data.places.forEach(p => allItems.push(p));
     this.data.photos.forEach(ph => allItems.push(ph));
     this.data.messages.forEach(msg => allItems.push(msg));
@@ -70,18 +71,20 @@ class ConstellationViewer {
 
     const dimensionYOffset = {
       'Purchases': -220,
-      'Music': -140,
-      'Places': -60,
-      'Photos': 20,
-      'Messages': 100,
-      'Searches': 180,
-      'Personal Notes': 260,
+      'Music': -150,
+      'Movies & Entertainment': -90,
+      'Places': -30,
+      'Photos': 30,
+      'Messages': 90,
+      'Searches': 150,
+      'Personal Notes': 220,
       'Events': 0
     };
 
     const dimensionColors = {
       'Purchases': '#10b981',
       'Music': '#06b6d4',
+      'Movies & Entertainment': '#ec4899',
       'Places': '#f59e0b',
       'Photos': '#f43f5e',
       'Messages': '#38bdf8',
